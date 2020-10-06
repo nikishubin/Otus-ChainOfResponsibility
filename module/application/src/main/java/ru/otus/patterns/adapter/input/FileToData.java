@@ -30,6 +30,11 @@ public class FileToData implements DataInput {
     }
 
     @Override
+    public String getSource() {
+        return pathToFile;
+    }
+
+    @Override
     public List<String> read() throws IOException {
         String source = getSourceFromFile();
         InputFileValidator.checkDelimiterIsCorrect(source, elementDelimiter);

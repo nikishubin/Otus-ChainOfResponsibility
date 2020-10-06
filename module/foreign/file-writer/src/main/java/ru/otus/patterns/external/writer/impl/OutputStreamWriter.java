@@ -21,7 +21,7 @@ public final class OutputStreamWriter implements FileWriter {
     @Override
     public void write(byte[] target) throws IOException {
         File source = Paths.get(path).toFile();
-        try (FileOutputStream out = new FileOutputStream(source)) {
+        try (FileOutputStream out = new FileOutputStream(source, true)) {
             out.write(target);
         } catch (FileNotFoundException fileNotFoundException) {
             log.error("File with path {} not found!", path);

@@ -4,24 +4,24 @@
 - application
 - usecase
 - file-writer
+- file-reader
 
 ---
 
 Flow:
-1. Write result to a file passed to arg[0];
-2. Read left border of fibonacci sequence from arg[1];
-3. Read right border of fibonacci sequence from arg[2].
+1. Read source paths from a file passed to arg[0];
+2. Iterate through chain of responsibility to handler;
+3. Copy data from a source file to a file passed to arg[1].
 
-Supported fibonacci sequence calculation algorithms:
-1. Binet;
-2. Iterative;
-
-If sequence is descending, Binet algorithm used for calculating fibonacci numbers.
-If sequence is ascending, Iterative algorithm used for calculating fibonacci numbers.
+Supported file types:
+1. .txt;
+2. .json;
+3. .csv;
+4. .xml
 
 Command example:
 
-`gradle clean application:run --args="D:\\Projects\\Otus\\iterator_output.txt 5 0"`
+`gradle clean application:run --args="D:\\Projects\\Otus\\chain_input.txt D:\\Projects\\Otus\\chain_output.txt"`
 
 ---
 
