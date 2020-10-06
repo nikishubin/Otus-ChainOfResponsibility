@@ -1,0 +1,14 @@
+rootProject.name = 'chain_of_responsibility'
+
+include ':usecase'
+include ':application'
+
+include ':file-reader'
+include ':file-writer'
+
+project(":usecase").projectDir = file("/module/usecase")
+project(":application").projectDir = file("/module/application")
+
+project(":file-reader").projectDir = file("/module/foreign/file-reader")
+project(":file-writer").projectDir = file("/module/foreign/file-writer")
+

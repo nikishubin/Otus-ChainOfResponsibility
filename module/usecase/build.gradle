@@ -1,0 +1,11 @@
+apply plugin: 'java-library'
+
+ext.moduleName = 'otus.responsibility.usecase'
+
+dependencies {
+    implementation "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+
+    testImplementation "org.assertj:assertj-core:${assertjVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter:${jupiterVersion}"
+    testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
+}

@@ -1,0 +1,16 @@
+apply plugin: "application"
+
+ext.moduleName = 'otus.responsibility.application'
+
+application {
+    setProperty('mainModule', 'chain.of.responsibility.application')
+    setProperty('mainClass', 'ru.otus.patterns.Application')
+}
+
+dependencies {
+    implementation project(":usecase")
+    implementation project(":file-reader")
+    implementation project(":file-writer")
+
+    implementation "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+}

@@ -1,0 +1,42 @@
+ext {
+    set('log4jVersion', '2.13.2')
+    set('jupiterVersion', '5.6.2')
+    set('assertjVersion', '3.16.0')
+    set('mockitoVersion', '3.3.3')
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    group = 'ru.otus.patterns'
+    version = '1.0.0'
+
+    sourceCompatibility = JavaVersion.VERSION_14
+    targetCompatibility = JavaVersion.VERSION_14
+
+    repositories {
+        mavenCentral()
+    }
+
+    plugins.withType(JavaPlugin).configureEach {
+        java {
+            modularity.inferModulePath = true
+        }
+    }
+
+    tasks.withType(Test) {
+        jvmArgs += "-XX:+ShowCodeDetailsInExceptionMessages"
+        useJUnitPlatform {
+            includeEngines("junit-jupiter")
+        }
+
+        testLogging {
+            events 'PASSED', 'FAILED', 'SKIPPED'
+        }
+    }
+
+    tasks.withType(JavaExec) {
+        jvmArgs += "-XX:+ShowCodeDetailsInExceptionMessages"
+    }
+}
